@@ -1,5 +1,3 @@
-# old code + 8192 + max turn + max gen 512
-
 export WANDB_MODE=offline
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 export LD_LIBRARY_PATH=/opt/conda/envs/lets/lib:$LD_LIBRARY_PATH
@@ -10,7 +8,7 @@ MODEL_NAME="lets-7b_ins-best_sc-exact_c"
 
 bash train.sh \
     --train_batch_size 256 \
-    --ppo_mini_batch_size 256 \
+    --ppo_mini_batch_size 64 \
     --prompt_template_name lets_template_sys \
     --actor_model_path /input2/zhangqi.zq/models/Qwen2.5-7B-Instruct \
     --search_url http://0.0.0.0:8888 \
